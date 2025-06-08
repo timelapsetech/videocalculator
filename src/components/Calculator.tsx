@@ -30,6 +30,9 @@ const Calculator: React.FC = () => {
   });
   const [copied, setCopied] = useState(false);
   const [isInitialized, setIsInitialized] = useState(false);
+  
+  // Track the last calculation that was tracked to prevent duplicate tracking
+  const [lastTrackedCalculation, setLastTrackedCalculation] = useState<string | null>(null);
 
   // Initialize from URL parameters when component mounts or categories load
   useEffect(() => {
@@ -261,10 +264,6 @@ const Calculator: React.FC = () => {
       }
     }
 
-    // Track this calculation for analytics (both local and centralized)
-    centralizedAnalytics.trackCalculation(selectedCategory, selectedCodec, selectedVariant, selectedResolution, selectedFrameRate);
-    googleAnalytics.trackCalculation(selectedCategory, selectedCodec, selectedVariant, selectedResolution, selectedFrameRate);
-
     const totalSeconds = duration.hours * 3600 + duration.minutes * 60 + duration.seconds;
     const fileSizeMB = (bitrateMbps * totalSeconds) / 8; // Convert bits to bytes
     const fileSizeGB = fileSizeMB / 1024;
@@ -285,6 +284,26 @@ const Calculator: React.FC = () => {
   };
 
   const results = calculateResults();
+
+  // Track analytics only when a complete, valid result is displayed
+  useEffect(() => {
+    if (!results || !isInitialized) return;
+
+    // Create a unique identifier for this calculation
+    const calculationId = `${selectedCategory}-${selectedCodec}-${selectedVariant}-${selectedResolution}-${selectedFrameRate}-${duration.hours}-${duration.minutes}-${duration.seconds}`;
+    
+    // Only track if this is a new calculation (different from the last one tracked)
+    if (calculationId !== lastTrackedCalculation) {
+      console.log('Tracking new calculation:', calculationId);
+      
+      // Track this calculation for analytics (both local and centralized)
+      centralizedAnalytics.trackCalculation(selectedCategory, selectedCodec, selectedVariant, selectedResolution, selectedFrameRate);
+      googleAnalytics.trackCalculation(selectedCategory, selectedCodec, selectedVariant, selectedResolution, selectedFrameRate);
+      
+      // Update the last tracked calculation
+      setLastTrackedCalculation(calculationId);
+    }
+  }, [results, selectedCategory, selectedCodec, selectedVariant, selectedResolution, selectedFrameRate, duration, isInitialized, lastTrackedCalculation]);
 
   // Close mobile menu when clicking outside
   useEffect(() => {
