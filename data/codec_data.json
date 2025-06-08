@@ -1,0 +1,1900 @@
+[
+  {
+    "id": "delivery",
+    "name": "Delivery & Streaming",
+    "description": "Optimized for final delivery and streaming platforms",
+    "codecs": [
+      {
+        "id": "h264",
+        "name": "H.264 (AVC)",
+        "description": "Most widely supported codec for delivery",
+        "workflowNotes": "Best for web streaming, social media, and general distribution. Excellent compatibility across all devices and platforms.",
+        "variants": [
+          {
+            "name": "Baseline Profile",
+            "description": "Basic profile for maximum compatibility",
+            "bitratesByResolution": {
+              "720p": {
+                "23.98": 5,
+                "24": 5,
+                "25": 5,
+                "29.97": 5,
+                "30": 5,
+                "59.94": 8,
+                "60": 8
+              },
+              "1080i": {
+                "25": 8,
+                "29.97": 8,
+                "30": 8,
+                "50": 12,
+                "59.94": 12,
+                "60": 12
+              },
+              "1080p": {
+                "23.98": 8,
+                "24": 8,
+                "25": 8,
+                "29.97": 8,
+                "30": 8,
+                "59.94": 12,
+                "60": 12
+              },
+              "4K": {
+                "23.98": 25,
+                "24": 25,
+                "25": 25,
+                "29.97": 25,
+                "30": 25,
+                "59.94": 35,
+                "60": 35
+              }
+            }
+          },
+          {
+            "name": "Main Profile",
+            "description": "Standard profile for broadcast and streaming",
+            "bitratesByResolution": {
+              "720p": {
+                "23.98": 6,
+                "24": 6,
+                "25": 6,
+                "29.97": 6,
+                "30": 6,
+                "59.94": 9,
+                "60": 9
+              },
+              "1080i": {
+                "25": 10,
+                "29.97": 10,
+                "30": 10,
+                "50": 15,
+                "59.94": 15,
+                "60": 15
+              },
+              "1080p": {
+                "23.98": 10,
+                "24": 10,
+                "25": 10,
+                "29.97": 10,
+                "30": 10,
+                "59.94": 15,
+                "60": 15
+              },
+              "4K": {
+                "23.98": 30,
+                "24": 30,
+                "25": 30,
+                "29.97": 30,
+                "30": 30,
+                "59.94": 45,
+                "60": 45
+              }
+            }
+          },
+          {
+            "name": "High Profile",
+            "description": "Advanced profile for high-quality delivery",
+            "bitratesByResolution": {
+              "720p": {
+                "23.98": 8,
+                "24": 8,
+                "25": 8,
+                "29.97": 8,
+                "30": 8,
+                "59.94": 12,
+                "60": 12
+              },
+              "1080i": {
+                "25": 15,
+                "29.97": 15,
+                "30": 15,
+                "50": 22,
+                "59.94": 22,
+                "60": 22
+              },
+              "1080p": {
+                "23.98": 15,
+                "24": 15,
+                "25": 15,
+                "29.97": 15,
+                "30": 15,
+                "59.94": 22,
+                "60": 22
+              },
+              "4K": {
+                "23.98": 45,
+                "24": 45,
+                "25": 45,
+                "29.97": 45,
+                "30": 45,
+                "59.94": 65,
+                "60": 65
+              }
+            }
+          }
+        ]
+      },
+      {
+        "id": "h265",
+        "name": "H.265 (HEVC)",
+        "description": "Next-generation codec with superior compression efficiency",
+        "workflowNotes": "Better compression than H.264, ideal for 4K/8K streaming. Requires more processing power but delivers smaller file sizes.",
+        "variants": [
+          {
+            "name": "Main Profile",
+            "description": "Standard HEVC profile for 8-bit content",
+            "bitratesByResolution": {
+              "720p": {
+                "23.98": 2.5,
+                "24": 2.5,
+                "25": 2.5,
+                "29.97": 2.5,
+                "30": 2.5,
+                "59.94": 3.5,
+                "60": 3.5
+              },
+              "1080p": {
+                "23.98": 5,
+                "24": 5,
+                "25": 5,
+                "29.97": 5,
+                "30": 5,
+                "59.94": 7,
+                "60": 7
+              },
+              "4K": {
+                "23.98": 15,
+                "24": 15,
+                "25": 15,
+                "29.97": 15,
+                "30": 15,
+                "59.94": 20,
+                "60": 20
+              },
+              "8K": {
+                "23.98": 50,
+                "24": 50,
+                "25": 50,
+                "29.97": 50,
+                "30": 50,
+                "59.94": 65,
+                "60": 65
+              }
+            }
+          },
+          {
+            "name": "Main 10",
+            "description": "10-bit profile for HDR content",
+            "bitratesByResolution": {
+              "720p": {
+                "23.98": 3,
+                "24": 3,
+                "25": 3,
+                "29.97": 3,
+                "30": 3,
+                "59.94": 4,
+                "60": 4
+              },
+              "1080p": {
+                "23.98": 6,
+                "24": 6,
+                "25": 6,
+                "29.97": 6,
+                "30": 6,
+                "59.94": 8,
+                "60": 8
+              },
+              "4K": {
+                "23.98": 18,
+                "24": 18,
+                "25": 18,
+                "29.97": 18,
+                "30": 18,
+                "59.94": 24,
+                "60": 24
+              },
+              "8K": {
+                "23.98": 60,
+                "24": 60,
+                "25": 60,
+                "29.97": 60,
+                "30": 60,
+                "59.94": 75,
+                "60": 75
+              }
+            }
+          },
+          {
+            "name": "Main 4:2:2 10",
+            "description": "Professional 10-bit 4:2:2 profile",
+            "bitratesByResolution": {
+              "720p": {
+                "23.98": 4,
+                "24": 4,
+                "25": 4,
+                "29.97": 4,
+                "30": 4,
+                "59.94": 5,
+                "60": 5
+              },
+              "1080p": {
+                "23.98": 8,
+                "24": 8,
+                "25": 8,
+                "29.97": 8,
+                "30": 8,
+                "59.94": 10,
+                "60": 10
+              },
+              "4K": {
+                "23.98": 25,
+                "24": 25,
+                "25": 25,
+                "29.97": 25,
+                "30": 25,
+                "59.94": 30,
+                "60": 30
+              },
+              "8K": {
+                "23.98": 80,
+                "24": 80,
+                "25": 80,
+                "29.97": 80,
+                "30": 80,
+                "59.94": 100,
+                "60": 100
+              }
+            }
+          }
+        ]
+      },
+      {
+        "id": "vp9",
+        "name": "VP9",
+        "description": "Google's open-source codec for web streaming",
+        "workflowNotes": "Used by YouTube and other Google services. Good compression efficiency with royalty-free licensing.",
+        "variants": [
+          {
+            "name": "Profile 0",
+            "description": "8-bit 4:2:0 profile",
+            "bitratesByResolution": {
+              "720p": {
+                "23.98": 2.5,
+                "24": 2.5,
+                "25": 2.5,
+                "29.97": 2.5,
+                "30": 2.5,
+                "59.94": 3.5,
+                "60": 3.5
+              },
+              "1080p": {
+                "23.98": 5,
+                "24": 5,
+                "25": 5,
+                "29.97": 5,
+                "30": 5,
+                "59.94": 7,
+                "60": 7
+              },
+              "4K": {
+                "23.98": 18,
+                "24": 18,
+                "25": 18,
+                "29.97": 18,
+                "30": 18,
+                "59.94": 24,
+                "60": 24
+              },
+              "8K": {
+                "23.98": 60,
+                "24": 60,
+                "25": 60,
+                "29.97": 60,
+                "30": 60,
+                "59.94": 75,
+                "60": 75
+              }
+            }
+          },
+          {
+            "name": "Profile 2",
+            "description": "10-bit 4:2:0 profile for HDR",
+            "bitratesByResolution": {
+              "720p": {
+                "23.98": 3,
+                "24": 3,
+                "25": 3,
+                "29.97": 3,
+                "30": 3,
+                "59.94": 4,
+                "60": 4
+              },
+              "1080p": {
+                "23.98": 6,
+                "24": 6,
+                "25": 6,
+                "29.97": 6,
+                "30": 6,
+                "59.94": 8,
+                "60": 8
+              },
+              "4K": {
+                "23.98": 22,
+                "24": 22,
+                "25": 22,
+                "29.97": 22,
+                "30": 22,
+                "59.94": 28,
+                "60": 28
+              },
+              "8K": {
+                "23.98": 75,
+                "24": 75,
+                "25": 75,
+                "29.97": 75,
+                "30": 75,
+                "59.94": 90,
+                "60": 90
+              }
+            }
+          }
+        ]
+      },
+      {
+        "id": "av1",
+        "name": "AV1",
+        "description": "Latest open-source codec with superior compression",
+        "workflowNotes": "Future-proof codec with excellent compression efficiency. Slower encoding but significantly smaller file sizes.",
+        "variants": [
+          {
+            "name": "Main Profile",
+            "description": "Standard AV1 profile",
+            "bitratesByResolution": {
+              "720p": {
+                "23.98": 2,
+                "24": 2,
+                "25": 2,
+                "29.97": 2,
+                "30": 2,
+                "59.94": 3,
+                "60": 3
+              },
+              "1080p": {
+                "23.98": 4,
+                "24": 4,
+                "25": 4,
+                "29.97": 4,
+                "30": 4,
+                "59.94": 5,
+                "60": 5
+              },
+              "4K": {
+                "23.98": 12,
+                "24": 12,
+                "25": 12,
+                "29.97": 12,
+                "30": 12,
+                "59.94": 16,
+                "60": 16
+              },
+              "8K": {
+                "23.98": 40,
+                "24": 40,
+                "25": 40,
+                "29.97": 40,
+                "30": 40,
+                "59.94": 50,
+                "60": 50
+              }
+            }
+          },
+          {
+            "name": "High Profile",
+            "description": "Advanced AV1 profile with enhanced features",
+            "bitratesByResolution": {
+              "720p": {
+                "23.98": 2.5,
+                "24": 2.5,
+                "25": 2.5,
+                "29.97": 2.5,
+                "30": 2.5,
+                "59.94": 3.5,
+                "60": 3.5
+              },
+              "1080p": {
+                "23.98": 5,
+                "24": 5,
+                "25": 5,
+                "29.97": 5,
+                "30": 5,
+                "59.94": 7,
+                "60": 7
+              },
+              "4K": {
+                "23.98": 15,
+                "24": 15,
+                "25": 15,
+                "29.97": 15,
+                "30": 15,
+                "59.94": 20,
+                "60": 20
+              },
+              "8K": {
+                "23.98": 50,
+                "24": 50,
+                "25": 50,
+                "29.97": 50,
+                "30": 50,
+                "59.94": 65,
+                "60": 65
+              }
+            }
+          },
+          {
+            "name": "Professional Profile",
+            "description": "Professional AV1 profile for high-end applications",
+            "bitratesByResolution": {
+              "720p": {
+                "23.98": 3,
+                "24": 3,
+                "25": 3,
+                "29.97": 3,
+                "30": 3,
+                "59.94": 4,
+                "60": 4
+              },
+              "1080p": {
+                "23.98": 6,
+                "24": 6,
+                "25": 6,
+                "29.97": 6,
+                "30": 6,
+                "59.94": 8,
+                "60": 8
+              },
+              "4K": {
+                "23.98": 18,
+                "24": 18,
+                "25": 18,
+                "29.97": 18,
+                "30": 18,
+                "59.94": 24,
+                "60": 24
+              },
+              "8K": {
+                "23.98": 60,
+                "24": 60,
+                "25": 60,
+                "29.97": 60,
+                "30": 60,
+                "59.94": 75,
+                "60": 75
+              }
+            }
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "professional",
+    "name": "Professional Intermediate",
+    "description": "High-quality codecs optimized for professional post-production workflows",
+    "codecs": [
+      {
+        "id": "prores",
+        "name": "Apple ProRes",
+        "description": "Industry standard for professional editing and color grading",
+        "workflowNotes": "Optimized for editing performance with excellent image quality. Widely supported across professional NLEs and color grading systems.",
+        "variants": [
+          {
+            "name": "ProRes 422 Proxy",
+            "description": "Lowest quality for offline editing and proxies",
+            "bitratesByResolution": {
+              "720p": {
+                "23.98": 45,
+                "24": 45,
+                "25": 45,
+                "29.97": 45,
+                "30": 45,
+                "59.94": 67,
+                "60": 67
+              },
+              "1080i": {
+                "25": 45,
+                "29.97": 45,
+                "30": 45,
+                "50": 67,
+                "59.94": 67,
+                "60": 67
+              },
+              "1080p": {
+                "23.98": 45,
+                "24": 45,
+                "25": 45,
+                "29.97": 45,
+                "30": 45,
+                "59.94": 67,
+                "60": 67
+              },
+              "4K": {
+                "23.98": 180,
+                "24": 180,
+                "25": 180,
+                "29.97": 180,
+                "30": 180,
+                "59.94": 270,
+                "60": 270
+              }
+            }
+          },
+          {
+            "name": "ProRes 422 LT",
+            "description": "Lower quality for basic editing workflows",
+            "bitratesByResolution": {
+              "1080i": {
+                "25": 85,
+                "29.97": 85,
+                "30": 85,
+                "50": 127,
+                "59.94": 127,
+                "60": 127
+              },
+              "1080p": {
+                "23.98": 82,
+                "24": 85,
+                "25": 85,
+                "29.97": 85,
+                "30": 102,
+                "59.94": 127,
+                "60": 127
+              },
+              "4K": {
+                "23.98": 328,
+                "24": 340,
+                "25": 340,
+                "29.97": 340,
+                "30": 408,
+                "59.94": 508,
+                "60": 508
+              }
+            }
+          },
+          {
+            "name": "ProRes 422",
+            "description": "Standard quality for professional editing",
+            "bitratesByResolution": {
+              "1080i": {
+                "25": 122,
+                "29.97": 122,
+                "30": 122,
+                "50": 183,
+                "59.94": 183,
+                "60": 183
+              },
+              "1080p": {
+                "23.98": 117,
+                "24": 122,
+                "25": 122,
+                "29.97": 122,
+                "30": 147,
+                "59.94": 183,
+                "60": 183
+              },
+              "4K": {
+                "23.98": 468,
+                "24": 488,
+                "25": 488,
+                "29.97": 488,
+                "30": 588,
+                "59.94": 732,
+                "60": 732
+              }
+            }
+          },
+          {
+            "name": "ProRes 422 HQ",
+            "description": "High quality for demanding workflows",
+            "bitratesByResolution": {
+              "1080i": {
+                "25": 184,
+                "29.97": 184,
+                "30": 184,
+                "50": 275,
+                "59.94": 275,
+                "60": 275
+              },
+              "1080p": {
+                "23.98": 176,
+                "24": 184,
+                "25": 184,
+                "29.97": 184,
+                "30": 220,
+                "59.94": 275,
+                "60": 275
+              },
+              "4K": {
+                "23.98": 704,
+                "24": 736,
+                "25": 736,
+                "29.97": 736,
+                "30": 880,
+                "59.94": 1100,
+                "60": 1100
+              }
+            }
+          },
+          {
+            "name": "ProRes 4444",
+            "description": "Highest quality with alpha channel support",
+            "bitratesByResolution": {
+              "1080i": {
+                "25": 275,
+                "29.97": 275,
+                "30": 275,
+                "50": 412,
+                "59.94": 412,
+                "60": 412
+              },
+              "1080p": {
+                "23.98": 275,
+                "24": 275,
+                "25": 275,
+                "29.97": 275,
+                "30": 440,
+                "59.94": 412,
+                "60": 412
+              },
+              "4K": {
+                "23.98": 1100,
+                "24": 1100,
+                "25": 1100,
+                "29.97": 1100,
+                "30": 1760,
+                "59.94": 1648,
+                "60": 1648
+              }
+            }
+          }
+        ]
+      },
+      {
+        "id": "dnxhd",
+        "name": "Avid DNxHD/HR",
+        "description": "Avid's professional codec family optimized for editorial workflows",
+        "workflowNotes": "Designed for Avid Media Composer and broadcast workflows. Excellent for collaborative editing environments.",
+        "variants": [
+          {
+            "name": "DNxHD 36",
+            "description": "Lowest quality DNxHD for offline editing",
+            "bitratesByResolution": {
+              "1080i": {
+                "25": 36,
+                "29.97": 36,
+                "30": 36,
+                "50": 36,
+                "59.94": 36,
+                "60": 36
+              }
+            }
+          },
+          {
+            "name": "DNxHD 145",
+            "description": "Standard quality DNxHD for online editing",
+            "bitratesByResolution": {
+              "1080i": {
+                "25": 145,
+                "29.97": 145,
+                "30": 145,
+                "50": 145,
+                "59.94": 145,
+                "60": 145
+              },
+              "1080p": {
+                "23.98": 145,
+                "24": 145,
+                "25": 145,
+                "29.97": 145,
+                "30": 145,
+                "59.94": 145,
+                "60": 145
+              }
+            }
+          },
+          {
+            "name": "DNxHD 220",
+            "description": "High quality DNxHD for finishing",
+            "bitratesByResolution": {
+              "1080i": {
+                "25": 220,
+                "29.97": 220,
+                "30": 220,
+                "50": 220,
+                "59.94": 220,
+                "60": 220
+              },
+              "1080p": {
+                "23.98": 220,
+                "24": 220,
+                "25": 220,
+                "29.97": 220,
+                "30": 220,
+                "59.94": 220,
+                "60": 220
+              }
+            }
+          },
+          {
+            "name": "DNxHR LB",
+            "description": "Low bandwidth DNxHR for proxy workflows",
+            "bitratesByResolution": {
+              "1080i": {
+                "25": 36,
+                "29.97": 36,
+                "30": 36,
+                "50": 36,
+                "59.94": 36,
+                "60": 36
+              },
+              "1080p": {
+                "23.98": 36,
+                "24": 36,
+                "25": 36,
+                "29.97": 36,
+                "30": 36,
+                "59.94": 36,
+                "60": 36
+              },
+              "4K": {
+                "23.98": 144,
+                "24": 144,
+                "25": 144,
+                "29.97": 144,
+                "30": 144,
+                "59.94": 144,
+                "60": 144
+              }
+            }
+          },
+          {
+            "name": "DNxHR SQ",
+            "description": "Standard quality DNxHR",
+            "bitratesByResolution": {
+              "1080i": {
+                "25": 145,
+                "29.97": 145,
+                "30": 145,
+                "50": 145,
+                "59.94": 145,
+                "60": 145
+              },
+              "1080p": {
+                "23.98": 145,
+                "24": 145,
+                "25": 145,
+                "29.97": 145,
+                "30": 145,
+                "59.94": 145,
+                "60": 145
+              },
+              "4K": {
+                "23.98": 580,
+                "24": 580,
+                "25": 580,
+                "29.97": 580,
+                "30": 580,
+                "59.94": 580,
+                "60": 580
+              }
+            }
+          },
+          {
+            "name": "DNxHR HQ",
+            "description": "High quality DNxHR",
+            "bitratesByResolution": {
+              "1080i": {
+                "25": 220,
+                "29.97": 220,
+                "30": 220,
+                "50": 220,
+                "59.94": 220,
+                "60": 220
+              },
+              "1080p": {
+                "23.98": 220,
+                "24": 220,
+                "25": 220,
+                "29.97": 220,
+                "30": 220,
+                "59.94": 220,
+                "60": 220
+              },
+              "4K": {
+                "23.98": 880,
+                "24": 880,
+                "25": 880,
+                "29.97": 880,
+                "30": 880,
+                "59.94": 880,
+                "60": 880
+              }
+            }
+          },
+          {
+            "name": "DNxHR HQX",
+            "description": "Highest quality DNxHR",
+            "bitratesByResolution": {
+              "1080p": {
+                "23.98": 440,
+                "24": 440,
+                "30": 440
+              },
+              "4K": {
+                "23.98": 1760,
+                "24": 1760,
+                "30": 1760
+              }
+            }
+          },
+          {
+            "name": "DNxHR 444",
+            "description": "Uncompressed quality with alpha support",
+            "bitratesByResolution": {
+              "1080p": {
+                "23.98": 350,
+                "24": 350,
+                "30": 350
+              },
+              "4K": {
+                "23.98": 1400,
+                "24": 1400,
+                "30": 1400
+              }
+            }
+          }
+        ]
+      },
+      {
+        "id": "cineform",
+        "name": "GoPro CineForm",
+        "description": "Wavelet-based intermediate codec for mixed resolution workflows",
+        "workflowNotes": "Excellent for mixed resolution projects and cross-platform compatibility. Good balance of quality and file size.",
+        "variants": [
+          {
+            "name": "CineForm Low",
+            "description": "Low quality for proxy workflows",
+            "bitratesByResolution": {
+              "720p": {
+                "23.98": 40,
+                "24": 40,
+                "25": 40,
+                "29.97": 40,
+                "30": 40,
+                "59.94": 60,
+                "60": 60
+              },
+              "1080p": {
+                "23.98": 90,
+                "24": 90,
+                "25": 90,
+                "29.97": 90,
+                "30": 90,
+                "59.94": 135,
+                "60": 135
+              },
+              "4K": {
+                "23.98": 360,
+                "24": 360,
+                "25": 360,
+                "29.97": 360,
+                "30": 360,
+                "59.94": 540,
+                "60": 540
+              }
+            }
+          },
+          {
+            "name": "CineForm Medium",
+            "description": "Medium quality for standard editing",
+            "bitratesByResolution": {
+              "720p": {
+                "23.98": 80,
+                "24": 80,
+                "25": 80,
+                "29.97": 80,
+                "30": 80,
+                "59.94": 120,
+                "60": 120
+              },
+              "1080p": {
+                "23.98": 180,
+                "24": 180,
+                "25": 180,
+                "29.97": 180,
+                "30": 180,
+                "59.94": 270,
+                "60": 270
+              },
+              "4K": {
+                "23.98": 720,
+                "24": 720,
+                "25": 720,
+                "29.97": 720,
+                "30": 720,
+                "59.94": 1080,
+                "60": 1080
+              }
+            }
+          },
+          {
+            "name": "CineForm High",
+            "description": "High quality for finishing workflows",
+            "bitratesByResolution": {
+              "720p": {
+                "23.98": 120,
+                "24": 120,
+                "25": 120,
+                "29.97": 120,
+                "30": 120,
+                "59.94": 180,
+                "60": 180
+              },
+              "1080p": {
+                "23.98": 270,
+                "24": 270,
+                "25": 270,
+                "29.97": 270,
+                "30": 270,
+                "59.94": 405,
+                "60": 405
+              },
+              "4K": {
+                "23.98": 1080,
+                "24": 1080,
+                "25": 1080,
+                "29.97": 1080,
+                "30": 1080,
+                "59.94": 1620,
+                "60": 1620
+              }
+            }
+          },
+          {
+            "name": "CineForm Film Scan",
+            "description": "Highest quality for film scanning applications",
+            "bitratesByResolution": {
+              "720p": {
+                "23.98": 180,
+                "24": 180,
+                "25": 180,
+                "29.97": 180,
+                "30": 180,
+                "59.94": 270,
+                "60": 270
+              },
+              "1080p": {
+                "23.98": 400,
+                "24": 400,
+                "25": 400,
+                "29.97": 400,
+                "30": 400,
+                "59.94": 600,
+                "60": 600
+              },
+              "4K": {
+                "23.98": 1600,
+                "24": 1600,
+                "25": 1600,
+                "29.97": 1600,
+                "30": 1600,
+                "59.94": 2400,
+                "60": 2400
+              }
+            }
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "camera",
+    "name": "Camera Acquisition",
+    "description": "Native camera recording formats from professional cameras",
+    "codecs": [
+      {
+        "id": "xdcam",
+        "name": "Sony XDCAM",
+        "description": "Sony's professional camera format for broadcast applications",
+        "workflowNotes": "Widely used in broadcast cameras and professional camcorders. Good balance of quality and workflow efficiency.",
+        "variants": [
+          {
+            "name": "XDCAM EX",
+            "description": "Entry-level XDCAM format",
+            "bitratesByResolution": {
+              "1080i": {
+                "25": 18,
+                "29.97": 18,
+                "30": 18,
+                "50": 18,
+                "59.94": 18,
+                "60": 18
+              }
+            }
+          },
+          {
+            "name": "XDCAM HD",
+            "description": "Standard XDCAM HD format",
+            "bitratesByResolution": {
+              "1080i": {
+                "25": 25,
+                "29.97": 25,
+                "30": 25,
+                "50": 25,
+                "59.94": 25,
+                "60": 25
+              }
+            }
+          },
+          {
+            "name": "XDCAM HD422",
+            "description": "High-quality 4:2:2 XDCAM format",
+            "bitratesByResolution": {
+              "1080i": {
+                "25": 50,
+                "29.97": 50,
+                "30": 50,
+                "50": 50,
+                "59.94": 50,
+                "60": 50
+              }
+            }
+          }
+        ]
+      },
+      {
+        "id": "xavc",
+        "name": "Sony XAVC",
+        "description": "Sony's modern acquisition format for high-end cameras",
+        "workflowNotes": "Used in Sony's professional and cinema cameras. Excellent image quality with efficient compression.",
+        "variants": [
+          {
+            "name": "XAVC-L",
+            "description": "Long GOP XAVC for efficient recording",
+            "bitratesByResolution": {
+              "1080i": {
+                "25": 50,
+                "29.97": 50,
+                "30": 50,
+                "50": 50,
+                "59.94": 50,
+                "60": 50
+              },
+              "1080p": {
+                "23.98": 50,
+                "24": 50,
+                "25": 50,
+                "29.97": 50,
+                "30": 50,
+                "59.94": 50,
+                "60": 50
+              },
+              "4K": {
+                "23.98": 100,
+                "24": 100,
+                "25": 100,
+                "29.97": 100,
+                "30": 100,
+                "59.94": 100,
+                "60": 100
+              }
+            }
+          },
+          {
+            "name": "XAVC-I",
+            "description": "Intraframe XAVC for professional workflows",
+            "bitratesByResolution": {
+              "1080i": {
+                "25": 200,
+                "29.97": 200,
+                "30": 200,
+                "50": 200,
+                "59.94": 200,
+                "60": 200
+              },
+              "1080p": {
+                "23.98": 200,
+                "24": 200,
+                "25": 200,
+                "29.97": 200,
+                "30": 200,
+                "59.94": 200,
+                "60": 200
+              },
+              "4K": {
+                "23.98": 400,
+                "24": 400,
+                "25": 400,
+                "29.97": 400,
+                "30": 400,
+                "59.94": 400,
+                "60": 400
+              }
+            }
+          },
+          {
+            "name": "XAVC-HS",
+            "description": "High-speed XAVC for slow motion",
+            "bitratesByResolution": {
+              "1080p": {
+                "23.98": 100,
+                "24": 100,
+                "25": 100,
+                "30": 100
+              },
+              "4K": {
+                "23.98": 200,
+                "24": 200,
+                "25": 200,
+                "30": 200
+              }
+            }
+          }
+        ]
+      },
+      {
+        "id": "avc_intra",
+        "name": "Panasonic AVC-Intra",
+        "description": "Panasonic's intraframe codec for professional cameras",
+        "workflowNotes": "Used in Panasonic professional cameras. Intraframe compression for easy editing and color grading.",
+        "variants": [
+          {
+            "name": "AVC-Intra 50",
+            "description": "Standard quality AVC-Intra",
+            "bitratesByResolution": {
+              "1080i": {
+                "25": 50,
+                "29.97": 50,
+                "30": 50,
+                "50": 50,
+                "59.94": 50,
+                "60": 50
+              },
+              "1080p": {
+                "23.98": 50,
+                "24": 50,
+                "25": 50,
+                "29.97": 50,
+                "30": 50,
+                "59.94": 50,
+                "60": 50
+              }
+            }
+          },
+          {
+            "name": "AVC-Intra 100",
+            "description": "High quality AVC-Intra",
+            "bitratesByResolution": {
+              "1080i": {
+                "25": 100,
+                "29.97": 100,
+                "30": 100,
+                "50": 100,
+                "59.94": 100,
+                "60": 100
+              },
+              "1080p": {
+                "23.98": 100,
+                "24": 100,
+                "25": 100,
+                "29.97": 100,
+                "30": 100,
+                "59.94": 100,
+                "60": 100
+              }
+            }
+          },
+          {
+            "name": "AVC-Intra 200",
+            "description": "Highest quality AVC-Intra",
+            "bitratesByResolution": {
+              "1080i": {
+                "25": 200,
+                "29.97": 200,
+                "30": 200,
+                "50": 200,
+                "59.94": 200,
+                "60": 200
+              },
+              "1080p": {
+                "23.98": 200,
+                "24": 200,
+                "25": 200,
+                "29.97": 200,
+                "30": 200,
+                "59.94": 200,
+                "60": 200
+              }
+            }
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "raw",
+    "name": "RAW & Cinema",
+    "description": "Unprocessed and cinema-quality formats for maximum image fidelity",
+    "codecs": [
+      {
+        "id": "prores_raw",
+        "name": "ProRes RAW",
+        "description": "Apple's RAW format combining RAW flexibility with ProRes efficiency",
+        "workflowNotes": "Maintains maximum image quality and color grading flexibility while providing efficient workflows in Final Cut Pro and other NLEs.",
+        "variants": [
+          {
+            "name": "ProRes RAW",
+            "description": "Standard ProRes RAW quality",
+            "bitratesByResolution": {
+              "1080p": {
+                "23.98": 500,
+                "24": 500,
+                "25": 500,
+                "29.97": 500,
+                "30": 500,
+                "59.94": 750,
+                "60": 750
+              },
+              "4K": {
+                "23.98": 2000,
+                "24": 2000,
+                "25": 2000,
+                "29.97": 2000,
+                "30": 2000,
+                "59.94": 3000,
+                "60": 3000
+              },
+              "8K": {
+                "23.98": 8000,
+                "24": 8000,
+                "25": 8000,
+                "29.97": 8000,
+                "30": 8000,
+                "59.94": 12000,
+                "60": 12000
+              }
+            }
+          },
+          {
+            "name": "ProRes RAW HQ",
+            "description": "High quality ProRes RAW",
+            "bitratesByResolution": {
+              "1080p": {
+                "23.98": 800,
+                "24": 800,
+                "25": 800,
+                "29.97": 800,
+                "30": 800,
+                "59.94": 1200,
+                "60": 1200
+              },
+              "4K": {
+                "23.98": 3200,
+                "24": 3200,
+                "25": 3200,
+                "29.97": 3200,
+                "30": 3200,
+                "59.94": 4800,
+                "60": 4800
+              },
+              "8K": {
+                "23.98": 12800,
+                "24": 12800,
+                "25": 12800,
+                "29.97": 12800,
+                "30": 12800,
+                "59.94": 19200,
+                "60": 19200
+              }
+            }
+          }
+        ]
+      },
+      {
+        "id": "braw",
+        "name": "Blackmagic RAW",
+        "description": "Blackmagic Design's intelligent RAW format",
+        "workflowNotes": "Intelligent RAW codec with excellent compression efficiency. Optimized for DaVinci Resolve workflows with real-time playback.",
+        "variants": [
+          {
+            "name": "BRAW Q0",
+            "description": "Uncompressed quality (lossless)",
+            "bitratesByResolution": {
+              "1080p": {
+                "23.98": 800,
+                "24": 800,
+                "25": 800,
+                "29.97": 800,
+                "30": 800,
+                "59.94": 1200,
+                "60": 1200
+              },
+              "4K": {
+                "23.98": 3200,
+                "24": 3200,
+                "25": 3200,
+                "29.97": 3200,
+                "30": 3200,
+                "59.94": 4800,
+                "60": 4800
+              },
+              "8K": {
+                "23.98": 12800,
+                "24": 12800,
+                "25": 12800,
+                "29.97": 12800,
+                "30": 12800,
+                "59.94": 19200,
+                "60": 19200
+              }
+            }
+          },
+          {
+            "name": "BRAW Q5",
+            "description": "Visually lossless quality",
+            "bitratesByResolution": {
+              "1080p": {
+                "23.98": 400,
+                "24": 400,
+                "25": 400,
+                "29.97": 400,
+                "30": 400,
+                "59.94": 600,
+                "60": 600
+              },
+              "4K": {
+                "23.98": 1600,
+                "24": 1600,
+                "25": 1600,
+                "29.97": 1600,
+                "30": 1600,
+                "59.94": 2400,
+                "60": 2400
+              },
+              "8K": {
+                "23.98": 6400,
+                "24": 6400,
+                "25": 6400,
+                "29.97": 6400,
+                "30": 6400,
+                "59.94": 9600,
+                "60": 9600
+              }
+            }
+          },
+          {
+            "name": "BRAW 3:1",
+            "description": "3:1 compression ratio",
+            "bitratesByResolution": {
+              "1080p": {
+                "23.98": 267,
+                "24": 267,
+                "25": 267,
+                "29.97": 267,
+                "30": 267,
+                "59.94": 400,
+                "60": 400
+              },
+              "4K": {
+                "23.98": 1067,
+                "24": 1067,
+                "25": 1067,
+                "29.97": 1067,
+                "30": 1067,
+                "59.94": 1600,
+                "60": 1600
+              },
+              "8K": {
+                "23.98": 4267,
+                "24": 4267,
+                "25": 4267,
+                "29.97": 4267,
+                "30": 4267,
+                "59.94": 6400,
+                "60": 6400
+              }
+            }
+          },
+          {
+            "name": "BRAW 5:1",
+            "description": "5:1 compression ratio",
+            "bitratesByResolution": {
+              "1080p": {
+                "23.98": 160,
+                "24": 160,
+                "25": 160,
+                "29.97": 160,
+                "30": 160,
+                "59.94": 240,
+                "60": 240
+              },
+              "4K": {
+                "23.98": 640,
+                "24": 640,
+                "25": 640,
+                "29.97": 640,
+                "30": 640,
+                "59.94": 960,
+                "60": 960
+              },
+              "8K": {
+                "23.98": 2560,
+                "24": 2560,
+                "25": 2560,
+                "29.97": 2560,
+                "30": 2560,
+                "59.94": 3840,
+                "60": 3840
+              }
+            }
+          },
+          {
+            "name": "BRAW 8:1",
+            "description": "8:1 compression ratio",
+            "bitratesByResolution": {
+              "1080p": {
+                "23.98": 100,
+                "24": 100,
+                "25": 100,
+                "29.97": 100,
+                "30": 100,
+                "59.94": 150,
+                "60": 150
+              },
+              "4K": {
+                "23.98": 400,
+                "24": 400,
+                "25": 400,
+                "29.97": 400,
+                "30": 400,
+                "59.94": 600,
+                "60": 600
+              },
+              "8K": {
+                "23.98": 1600,
+                "24": 1600,
+                "25": 1600,
+                "29.97": 1600,
+                "30": 1600,
+                "59.94": 2400,
+                "60": 2400
+              }
+            }
+          },
+          {
+            "name": "BRAW 12:1",
+            "description": "12:1 compression ratio",
+            "bitratesByResolution": {
+              "1080p": {
+                "23.98": 67,
+                "24": 67,
+                "25": 67,
+                "29.97": 67,
+                "30": 67,
+                "59.94": 100,
+                "60": 100
+              },
+              "4K": {
+                "23.98": 267,
+                "24": 267,
+                "25": 267,
+                "29.97": 267,
+                "30": 267,
+                "59.94": 400,
+                "60": 400
+              },
+              "8K": {
+                "23.98": 1067,
+                "24": 1067,
+                "25": 1067,
+                "29.97": 1067,
+                "30": 1067,
+                "59.94": 1600,
+                "60": 1600
+              }
+            }
+          }
+        ]
+      },
+      {
+        "id": "red_r3d",
+        "name": "RED R3D",
+        "description": "RED Digital Cinema's proprietary RAW format",
+        "workflowNotes": "Professional cinema RAW with variable compression ratios. Industry standard for high-end film and commercial production.",
+        "variants": [
+          {
+            "name": "REDCODE RAW 2:1",
+            "description": "Highest quality with 2:1 compression",
+            "bitratesByResolution": {
+              "4K": {
+                "23.98": 2400,
+                "24": 2400,
+                "25": 2400,
+                "29.97": 2400,
+                "30": 2400,
+                "59.94": 3600,
+                "60": 3600
+              },
+              "8K": {
+                "23.98": 9600,
+                "24": 9600,
+                "25": 9600,
+                "29.97": 9600,
+                "30": 9600,
+                "59.94": 14400,
+                "60": 14400
+              }
+            }
+          },
+          {
+            "name": "REDCODE RAW 3:1",
+            "description": "High quality with 3:1 compression",
+            "bitratesByResolution": {
+              "4K": {
+                "23.98": 1600,
+                "24": 1600,
+                "25": 1600,
+                "29.97": 1600,
+                "30": 1600,
+                "59.94": 2400,
+                "60": 2400
+              },
+              "8K": {
+                "23.98": 6400,
+                "24": 6400,
+                "25": 6400,
+                "29.97": 6400,
+                "30": 6400,
+                "59.94": 9600,
+                "60": 9600
+              }
+            }
+          },
+          {
+            "name": "REDCODE RAW 4:1",
+            "description": "Standard quality with 4:1 compression",
+            "bitratesByResolution": {
+              "4K": {
+                "23.98": 1200,
+                "24": 1200,
+                "25": 1200,
+                "29.97": 1200,
+                "30": 1200,
+                "59.94": 1800,
+                "60": 1800
+              },
+              "8K": {
+                "23.98": 4800,
+                "24": 4800,
+                "25": 4800,
+                "29.97": 4800,
+                "30": 4800,
+                "59.94": 7200,
+                "60": 7200
+              }
+            }
+          },
+          {
+            "name": "REDCODE RAW 5:1",
+            "description": "Efficient quality with 5:1 compression",
+            "bitratesByResolution": {
+              "4K": {
+                "23.98": 960,
+                "24": 960,
+                "25": 960,
+                "29.97": 960,
+                "30": 960,
+                "59.94": 1440,
+                "60": 1440
+              },
+              "8K": {
+                "23.98": 3840,
+                "24": 3840,
+                "25": 3840,
+                "29.97": 3840,
+                "30": 3840,
+                "59.94": 5760,
+                "60": 5760
+              }
+            }
+          },
+          {
+            "name": "REDCODE RAW 8:1",
+            "description": "Compact quality with 8:1 compression",
+            "bitratesByResolution": {
+              "4K": {
+                "23.98": 600,
+                "24": 600,
+                "25": 600,
+                "29.97": 600,
+                "30": 600,
+                "59.94": 900,
+                "60": 900
+              },
+              "8K": {
+                "23.98": 2400,
+                "24": 2400,
+                "25": 2400,
+                "29.97": 2400,
+                "30": 2400,
+                "59.94": 3600,
+                "60": 3600
+              }
+            }
+          }
+        ]
+      },
+      {
+        "id": "canon_raw",
+        "name": "Canon Cinema RAW",
+        "description": "Canon's cinema RAW format for professional cameras",
+        "workflowNotes": "Used in Canon's cinema cameras like the C300, C500, and C700 series. Optimized for Canon's color science and workflows.",
+        "variants": [
+          {
+            "name": "Cinema RAW Light",
+            "description": "Compressed RAW format for efficient workflows",
+            "bitratesByResolution": {
+              "4K": {
+                "23.98": 1000,
+                "24": 1000,
+                "25": 1000,
+                "29.97": 1000,
+                "30": 1000,
+                "59.94": 1500,
+                "60": 1500
+              },
+              "8K": {
+                "23.98": 4000,
+                "24": 4000,
+                "25": 4000,
+                "29.97": 4000,
+                "30": 4000,
+                "59.94": 6000,
+                "60": 6000
+              }
+            }
+          },
+          {
+            "name": "Cinema RAW ST",
+            "description": "Standard RAW format for maximum quality",
+            "bitratesByResolution": {
+              "4K": {
+                "23.98": 2000,
+                "24": 2000,
+                "25": 2000,
+                "29.97": 2000,
+                "30": 2000,
+                "59.94": 3000,
+                "60": 3000
+              },
+              "8K": {
+                "23.98": 8000,
+                "24": 8000,
+                "25": 8000,
+                "29.97": 8000,
+                "30": 8000,
+                "59.94": 12000,
+                "60": 12000
+              }
+            }
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "broadcast",
+    "name": "Broadcast",
+    "description": "Traditional broadcast and legacy formats for television and streaming",
+    "codecs": [
+      {
+        "id": "mpeg2",
+        "name": "MPEG-2",
+        "description": "Traditional broadcast standard still used in many applications",
+        "workflowNotes": "Legacy format widely used in broadcast television, DVD, and satellite transmission. Still relevant for certain broadcast workflows.",
+        "variants": [
+          {
+            "name": "MPEG-2 422P@ML",
+            "description": "Main Level 4:2:2 Profile",
+            "bitratesByResolution": {
+              "NTSC": {
+                "29.97": 25,
+                "59.94": 35
+              },
+              "PAL": {
+                "25": 25,
+                "50": 35
+              },
+              "720p": {
+                "23.98": 25,
+                "24": 25,
+                "25": 25,
+                "29.97": 25,
+                "30": 25,
+                "59.94": 35,
+                "60": 35
+              },
+              "1080i": {
+                "25": 25,
+                "29.97": 25,
+                "30": 25,
+                "50": 35,
+                "59.94": 35,
+                "60": 35
+              }
+            }
+          },
+          {
+            "name": "MPEG-2 422P@HL",
+            "description": "High Level 4:2:2 Profile",
+            "bitratesByResolution": {
+              "NTSC": {
+                "29.97": 50,
+                "59.94": 70
+              },
+              "PAL": {
+                "25": 50,
+                "50": 70
+              },
+              "720p": {
+                "23.98": 50,
+                "24": 50,
+                "25": 50,
+                "29.97": 50,
+                "30": 50,
+                "59.94": 70,
+                "60": 70
+              },
+              "1080i": {
+                "25": 50,
+                "29.97": 50,
+                "30": 50,
+                "50": 70,
+                "59.94": 70,
+                "60": 70
+              }
+            }
+          },
+          {
+            "name": "MPEG-2 MP@ML",
+            "description": "Main Profile at Main Level",
+            "bitratesByResolution": {
+              "NTSC": {
+                "29.97": 15,
+                "59.94": 20
+              },
+              "PAL": {
+                "25": 15,
+                "50": 20
+              },
+              "720p": {
+                "23.98": 15,
+                "24": 15,
+                "25": 15,
+                "29.97": 15,
+                "30": 15,
+                "59.94": 20,
+                "60": 20
+              },
+              "1080i": {
+                "25": 15,
+                "29.97": 15,
+                "30": 15,
+                "50": 20,
+                "59.94": 20,
+                "60": 20
+              }
+            }
+          }
+        ]
+      },
+      {
+        "id": "jpeg2000",
+        "name": "JPEG 2000",
+        "description": "Wavelet-based codec for high-end broadcast applications",
+        "workflowNotes": "Used in high-end broadcast workflows and digital cinema distribution. Excellent image quality with scalable compression.",
+        "variants": [
+          {
+            "name": "J2K IMF 4K",
+            "description": "Netflix IMF 4K master specification",
+            "bitratesByResolution": {
+              "4K": {
+                "23.98": 250,
+                "24": 250,
+                "25": 250,
+                "29.97": 250,
+                "30": 250
+              }
+            }
+          },
+          {
+            "name": "J2K Lossless",
+            "description": "Mathematically lossless compression",
+            "bitratesByResolution": {
+              "1080i": {
+                "25": 800,
+                "29.97": 800,
+                "30": 800,
+                "50": 800,
+                "59.94": 800,
+                "60": 800
+              },
+              "1080p": {
+                "23.98": 800,
+                "24": 800,
+                "25": 800,
+                "29.97": 800,
+                "30": 800,
+                "59.94": 800,
+                "60": 800
+              },
+              "4K": {
+                "23.98": 3200,
+                "24": 3200,
+                "25": 3200,
+                "29.97": 3200,
+                "30": 3200,
+                "59.94": 3200,
+                "60": 3200
+              }
+            }
+          },
+          {
+            "name": "J2K Visually Lossless",
+            "description": "Visually lossless compression",
+            "bitratesByResolution": {
+              "720p": {
+                "23.98": 200,
+                "24": 200,
+                "25": 200,
+                "30": 200
+              },
+              "1080p": {
+                "23.98": 400,
+                "24": 400,
+                "25": 400,
+                "30": 400
+              },
+              "4K": {
+                "23.98": 1600,
+                "24": 1600,
+                "25": 1600,
+                "30": 1600
+              }
+            }
+          }
+        ]
+      }
+    ]
+  }
+]
