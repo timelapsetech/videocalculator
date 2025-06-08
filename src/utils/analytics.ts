@@ -137,143 +137,31 @@ export class GoogleAnalytics {
 // Export singleton instance
 export const googleAnalytics = GoogleAnalytics.getInstance();
 
-// Centralized analytics for shared usage data
-class CentralizedAnalytics {
-  private static instance: CentralizedAnalytics;
-  private storageKey = 'globalCalculatorStats';
+// Import centralized analytics
+import { centralizedAnalytics } from './centralizedAnalytics';
 
-  private constructor() {}
-
-  static getInstance(): CentralizedAnalytics {
-    if (!CentralizedAnalytics.instance) {
-      CentralizedAnalytics.instance = new CentralizedAnalytics();
-    }
-    return CentralizedAnalytics.instance;
-  }
-
-  // Track calculation with centralized storage
-  trackCalculation(category: string, codec: string, variant: string, resolution: string): void {
-    try {
-      // Get existing stats
-      const stats = this.getStats();
-      const key = `${category}-${codec}-${variant}-${resolution}`;
-      
-      // Update stats
-      stats[key] = (stats[key] || 0) + 1;
-      stats.totalCalculations = (stats.totalCalculations || 0) + 1;
-      stats.lastUsed = Date.now();
-      
-      // Save updated stats
-      localStorage.setItem(this.storageKey, JSON.stringify(stats));
-      
-      // Also broadcast to other tabs/windows
-      this.broadcastUpdate(stats);
-    } catch (error) {
-      console.error('Error tracking calculation:', error);
-    }
-  }
-
-  // Get popular codecs
-  getPopularCodecs(limit = 10): [string, number][] {
-    try {
-      const stats = this.getStats();
-      return Object.entries(stats)
-        .filter(([key]) => key !== 'totalCalculations' && key !== 'lastUsed')
-        .sort(([,a], [,b]) => (b as number) - (a as number))
-        .slice(0, limit) as [string, number][];
-    } catch (error) {
-      console.error('Error getting popular codecs:', error);
-      return [];
-    }
-  }
-
-  // Get total usage statistics
-  getTotalUsage(): { totalCalculations: number; lastUsed: number | null; uniqueConfigurations: number } {
-    try {
-      const stats = this.getStats();
-      return {
-        totalCalculations: stats.totalCalculations || 0,
-        lastUsed: stats.lastUsed || null,
-        uniqueConfigurations: Math.max(0, Object.keys(stats).length - 2) // Exclude totalCalculations and lastUsed
-      };
-    } catch (error) {
-      console.error('Error getting total usage:', error);
-      return { totalCalculations: 0, lastUsed: null, uniqueConfigurations: 0 };
-    }
-  }
-
-  // Clear all statistics
-  clearStats(): void {
-    try {
-      localStorage.removeItem(this.storageKey);
-      this.broadcastUpdate({});
-    } catch (error) {
-      console.error('Error clearing stats:', error);
-    }
-  }
-
-  // Get raw stats object
-  private getStats(): Record<string, any> {
-    try {
-      const stored = localStorage.getItem(this.storageKey);
-      return stored ? JSON.parse(stored) : {};
-    } catch (error) {
-      console.error('Error parsing stats:', error);
-      return {};
-    }
-  }
-
-  // Broadcast updates to other tabs/windows
-  private broadcastUpdate(stats: Record<string, any>): void {
-    try {
-      // Use storage event to notify other tabs
-      window.dispatchEvent(new StorageEvent('storage', {
-        key: this.storageKey,
-        newValue: JSON.stringify(stats),
-        storageArea: localStorage
-      }));
-    } catch (error) {
-      console.error('Error broadcasting update:', error);
-    }
-  }
-
-  // Listen for updates from other tabs
-  onStatsUpdate(callback: () => void): () => void {
-    const handler = (event: StorageEvent) => {
-      if (event.key === this.storageKey) {
-        callback();
-      }
-    };
-
-    window.addEventListener('storage', handler);
-    
-    // Return cleanup function
-    return () => window.removeEventListener('storage', handler);
-  }
-}
-
-// Export centralized analytics instance
-export const centralizedAnalytics = CentralizedAnalytics.getInstance();
-
-// Legacy analytics for backward compatibility (now uses centralized storage)
+// Legacy analytics interface for backward compatibility
 export const analytics = {
-  trackCalculation: (category: string, codec: string, variant: string, resolution: string) => {
-    // Use centralized analytics
-    centralizedAnalytics.trackCalculation(category, codec, variant, resolution);
+  trackCalculation: async (category: string, codec: string, variant: string, resolution: string) => {
+    // Use centralized analytics (with automatic fallback to local)
+    await centralizedAnalytics.trackCalculation(category, codec, variant, resolution);
     
     // Google Analytics tracking
     googleAnalytics.trackCalculation(category, codec, variant, resolution, '30'); // Default frame rate
   },
   
-  getPopularCodecs: (limit = 10) => {
-    return centralizedAnalytics.getPopularCodecs(limit);
+  getPopularCodecs: async (limit = 10) => {
+    return await centralizedAnalytics.getPopularCodecs(limit);
   },
   
-  getTotalUsage: () => {
-    return centralizedAnalytics.getTotalUsage();
+  getTotalUsage: async () => {
+    return await centralizedAnalytics.getTotalUsage();
   },
 
-  clearStats: () => {
-    centralizedAnalytics.clearStats();
+  clearStats: async () => {
+    return await centralizedAnalytics.clearStats();
   }
 };
+
+// Export centralized analytics for direct use
+export { centralizedAnalytics };

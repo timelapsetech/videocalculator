@@ -4,7 +4,7 @@ import { Settings, Share2, Check, Film, HardDrive, Star, RotateCcw, Plus, Info, 
 import { useCodecContext } from '../context/CodecContext';
 import { usePresetContext } from '../context/PresetContext';
 import { resolutions, frameRates } from '../data/resolutions';
-import { analytics, googleAnalytics } from '../utils/analytics';
+import { analytics, googleAnalytics, centralizedAnalytics } from '../utils/analytics';
 import { generateShareableLink } from '../utils/urlSharing';
 import CustomSelect from './CustomSelect';
 import ResultsPanel from './ResultsPanel';
@@ -261,8 +261,8 @@ const Calculator: React.FC = () => {
       }
     }
 
-    // Track this calculation for analytics (both local and Google Analytics)
-    analytics.trackCalculation(selectedCategory, selectedCodec, selectedVariant, selectedResolution);
+    // Track this calculation for analytics (both local and centralized)
+    centralizedAnalytics.trackCalculation(selectedCategory, selectedCodec, selectedVariant, selectedResolution, selectedFrameRate);
     googleAnalytics.trackCalculation(selectedCategory, selectedCodec, selectedVariant, selectedResolution, selectedFrameRate);
 
     const totalSeconds = duration.hours * 3600 + duration.minutes * 60 + duration.seconds;

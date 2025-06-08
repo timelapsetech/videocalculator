@@ -22,6 +22,8 @@ const Admin: React.FC = () => {
   const [adminUser, setAdminUser] = useState<AdminUser | null>(null);
   const [activeTab, setActiveTab] = useState('codecs');
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+  const [usageStats, setUsageStats] = useState({ totalCalculations: 0, uniqueConfigurations: 0, lastUsed: null });
+  const [popularCodecs, setPopularCodecs] = useState<Array<{ config: string; count: number }>>([]);
 
   useEffect(() => {
     // Check if already authenticated
@@ -39,6 +41,26 @@ const Admin: React.FC = () => {
       }
     }
   }, []);
+
+  // Load analytics data when authenticated
+  useEffect(() => {
+    if (isAuthenticated) {
+      loadAnalyticsData();
+    }
+  }, [isAuthenticated]);
+
+  const loadAnalyticsData = async () => {
+    try {
+      const stats = await centralizedAnalytics.getTotalUsage();
+      setUsageStats(stats);
+
+      const popular = await centralizedAnalytics.getPopularCodecs(5);
+      const parsedPopular = popular.map(([config, count]) => ({ config, count }));
+      setPopularCodecs(parsedPopular);
+    } catch (error) {
+      console.warn('Failed to load analytics data:', error);
+    }
+  };
 
   const handleAuthSuccess = () => {
     const authData = sessionStorage.getItem('adminAuth');
@@ -108,8 +130,19 @@ const Admin: React.FC = () => {
     }
   };
 
-  const usageStats = centralizedAnalytics.getTotalUsage();
-  const popularCodecs = centralizedAnalytics.getPopularCodecs(5);
+  const handleClearStats = async () => {
+    if (confirm('Are you sure you want to clear all analytics data? This will affect all users and cannot be undone.')) {
+      try {
+        await centralizedAnalytics.clearStats();
+        setUsageStats({ totalCalculations: 0, uniqueConfigurations: 0, lastUsed: null });
+        setPopularCodecs([]);
+        alert('Analytics data cleared successfully.');
+      } catch (error) {
+        console.error('Failed to clear stats:', error);
+        alert('Failed to clear analytics data. Please try again.');
+      }
+    }
+  };
 
   if (!isAuthenticated) {
     return <AdminAuth onAuthSuccess={handleAuthSuccess} />;
@@ -385,13 +418,13 @@ const Admin: React.FC = () => {
               </div>
 
               {popularCodecs.length > 0 && (
-                <div>
+                <div className="mb-6">
                   <h3 className="text-sm sm:text-md font-semibold text-white mb-4">Most Popular Configurations</h3>
                   <div className="space-y-2">
-                    {popularCodecs.map(([config, count], index) => {
-                      const [category, codec, variant, resolution] = config.split('-');
+                    {popularCodecs.map((item, index) => {
+                      const [category, codec, variant, resolution] = item.config.split('-');
                       return (
-                        <div key={config} className="bg-dark-primary rounded-lg p-3 flex justify-between items-center">
+                        <div key={item.config} className="bg-dark-primary rounded-lg p-3 flex justify-between items-center">
                           <div>
                             <div className="text-white font-medium text-sm">
                               {codec} - {variant}
@@ -401,7 +434,7 @@ const Admin: React.FC = () => {
                             </div>
                           </div>
                           <div className="text-blue-400 font-bold text-sm">
-                            {count} uses
+                            {item.count} uses
                           </div>
                         </div>
                       );
@@ -411,23 +444,26 @@ const Admin: React.FC = () => {
               )}
 
               <div className="mt-6 pt-6 border-t border-gray-700">
-                <div className="bg-yellow-600/10 border border-yellow-600/20 rounded-lg p-4 mb-4">
-                  <p className="text-yellow-400 text-xs sm:text-sm">
-                    <strong>Note:</strong> This data is now shared across all users and displayed publicly on the main calculator page. 
+                <div className="bg-blue-600/10 border border-blue-600/20 rounded-lg p-4 mb-4">
+                  <p className="text-blue-400 text-xs sm:text-sm">
+                    <strong>Note:</strong> This data is now centralized across all users worldwide and displayed publicly on the main calculator page. 
                     The analytics help users see what configurations are most popular in the community.
                   </p>
                 </div>
-                <button
-                  onClick={() => {
-                    if (confirm('Are you sure you want to clear all analytics data? This will affect all users.')) {
-                      centralizedAnalytics.clearStats();
-                      window.location.reload();
-                    }
-                  }}
-                  className="px-4 py-2 bg-red-600 hover:bg-red-700 rounded-lg text-white transition-colors text-sm"
-                >
-                  Clear All Analytics Data
-                </button>
+                <div className="flex items-center space-x-4">
+                  <button
+                    onClick={loadAnalyticsData}
+                    className="px-4 py-2 bg-blue-600 hover:bg-blue-700 rounded-lg text-white transition-colors text-sm"
+                  >
+                    Refresh Data
+                  </button>
+                  <button
+                    onClick={handleClearStats}
+                    className="px-4 py-2 bg-red-600 hover:bg-red-700 rounded-lg text-white transition-colors text-sm"
+                  >
+                    Clear All Analytics Data
+                  </button>
+                </div>
               </div>
             </div>
           </div>
