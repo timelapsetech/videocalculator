@@ -1894,6 +1894,90 @@
             }
           }
         ]
+      },
+      {
+        "id": "mxf_d10",
+        "name": "MXF D-10",
+        "description": "SMPTE standard for broadcast and professional video",
+        "workflowNotes": "Industry standard format for broadcast and professional video. Based on MPEG-2 compression with 4:2:2 color sampling.",
+        "variants": [
+          {
+            "name": "D-10 50",
+            "description": "Standard quality D-10",
+            "bitratesByResolution": {
+              "1080i": {
+                "25": 50,
+                "29.97": 50,
+                "30": 50,
+                "50": 50,
+                "59.94": 50,
+                "60": 50
+              }
+            }
+          },
+          {
+            "name": "D-10 100",
+            "description": "High quality D-10",
+            "bitratesByResolution": {
+              "1080i": {
+                "25": 100,
+                "29.97": 100,
+                "30": 100,
+                "50": 100,
+                "59.94": 100,
+                "60": 100
+              }
+            }
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "archival",
+    "name": "Archival & Preservation",
+    "description": "Codecs optimized for long-term preservation and archival storage",
+    "codecs": [
+      {
+        "id": "ffv1",
+        "name": "FFV1",
+        "description": "Lossless video codec designed for archival purposes",
+        "workflowNotes": "Open-source lossless codec ideal for long-term preservation. Mathematically lossless compression with excellent compression efficiency.",
+        "variants": [
+          {
+            "name": "FFV1 Lossless",
+            "description": "Mathematically lossless compression",
+            "bitratesByResolution": {
+              "720p": {
+                "23.98": 200,
+                "24": 200,
+                "25": 200,
+                "29.97": 200,
+                "30": 200,
+                "59.94": 300,
+                "60": 300
+              },
+              "1080p": {
+                "23.98": 400,
+                "24": 400,
+                "25": 400,
+                "29.97": 400,
+                "30": 400,
+                "59.94": 600,
+                "60": 600
+              },
+              "4K": {
+                "23.98": 1600,
+                "24": 1600,
+                "25": 1600,
+                "29.97": 1600,
+                "30": 1600,
+                "59.94": 2400,
+                "60": 2400
+              }
+            }
+          }
+        ]
       }
     ]
   }
